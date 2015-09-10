@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+  <head>
+    <style>
+      body { margin: 0; }
+    </style>
+  </head>
+  <body>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r71/three.min.js"></script>
+
+    <script>
+      var renderer = new THREE.WebGLRenderer();
+      var width = window.innerWidth;
+      var height = window.innerHeight;
+      var darkOrange = 0xd5631d;
+
+      renderer.setSize( width, height );
+      renderer.setClearColor( darkOrange );
+      renderer.clear();
+
+      document.body.appendChild( renderer.domElement );
+    </script>
+
+  </body>
+</html>
