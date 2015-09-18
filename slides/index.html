@@ -7,15 +7,6 @@
     <link rel="stylesheet" type="text/css" href="css/solarized-dark.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link href='https://fonts.googleapis.com/css?family=Bitter:400,400italic,700' rel='stylesheet' type='text/css'>
-    <script src="js/jquery-1.8.0.min.js"></script>
-    <script src="js/jquery.color.js"></script>
-    <script src="js/present.js"></script>
-    <script src="js/rainbow/rainbow.min.js"></script>
-    <script src="js/rainbow/generic.js"></script>
-    <script src="js/rainbow/html.js"></script>
-    <script src="js/rainbow/css.js"></script>
-    <script src="js/rainbow/javascript.js"></script>
-    <script src="js/live.js#html,js,css"></script>
   </head>
 
   <body>
@@ -91,8 +82,14 @@
         <p class="row5"><ul class="row5 small">
           <li>High-level 3D library</li>
           <li>Extremely popular (21k+ favs on Github)</li>
+          <li>Well documented and has good community support</li>
           <li>Cuts down boilerplates while maintaining flexibility</li>
         </ul></p>
+      </article>
+
+      <article>
+        <p class="row2 white bold">Technical dive-in</p>
+        <p class="row4 small">Three steps up and running</p>
       </article>
 
       <article>
@@ -107,6 +104,188 @@ document.body.appendChild( renderer.domElement );</pre>
         <p class="row2 bold white">Setup render context</p>
       </article>
 
+      <article>
+        <pre class="row3 fine" data-language="javascript">
+var scene = new THREE.Scene();
+
+var geometry = new THREE.SphereGeometry( 1, 32, 32 );
+var material = new THREE.MeshBasicMaterial( { color: 0xd5631d } );
+var object = new THREE.Mesh( geometry, material );
+scene.add( object );
+
+var camera = new THREE.PerspectiveCamera( 55, width / height, 1, 1000 );
+camera.position.z = 3;</pre>
+        <p class="row2 bold white">Create geometry and camera</p>
+      </article>
+
+      <article>
+        <pre class="row3 fine" data-language="javascript">
+function draw () {
+  window.requestAnimationFrame( draw );
+  renderer.render( scene, camera );
+}
+draw();</pre>
+        <p class="row2 bold white">Start rendering</p>
+      </article>
+
+      <article>
+        <p class="full" id="basic_example"></p>
+      </article>
+
+      <article>
+        <pre class="row3 fine" data-language="javascript">
+var light = new THREE.PointLight( 0xffffff, 1 );
+light.position.set( 10, 10, 10 );
+scene.add( light );</pre>
+
+        <pre class="row6 fine" data-language="javascript">
+var material = new THREE.MeshPhongMaterial( { color: 0xd5631d } );</pre>
+        <p class="row2 bold white">Light up the world</p>
+      </article>
+
+      <article>
+        <p class="full" id="basic_lighting_example"></p>
+      </article>
+
+      <article>
+        <pre class="row3 fine" data-language="javascript">
+THREE.ImageUtils.loadTexture(
+  'img/mars_1k_color.jpg',
+  THREE.UVMapping,
+  function ( texture ) {
+    var geometry = new THREE.SphereGeometry( 1, 32, 32 );
+    var material = new THREE.MeshLambertMaterial( { map: texture } );
+    var object = new THREE.Mesh( geometry, material );
+    scene.add( object );
+  });</pre>
+        <p class="row2 bold white">Apply texture mapping</p>
+      </article>
+
+      <article>
+        <p class="full" id="basic_texturing_example"></p>
+      </article>
+
     </section>
+
+    <script src="js/jquery-1.8.0.min.js"></script>
+    <script src="js/jquery.color.js"></script>
+    <script src="js/present.js"></script>
+    <script src="js/rainbow/rainbow.min.js"></script>
+    <script src="js/rainbow/generic.js"></script>
+    <script src="js/rainbow/html.js"></script>
+    <script src="js/rainbow/css.js"></script>
+    <script src="js/rainbow/javascript.js"></script>
+    <script src="js/three.min.js"></script>
+    <script src="js/OrbitControls.js"></script>
+
+    <!-- Basic example -->
+    <script>
+      (function () {
+        var container = document.getElementById( 'basic_example' );
+        var renderer = new THREE.WebGLRenderer();
+        var width = container.offsetWidth;
+        var height = container.offsetHeight;
+        var darkOrange = 0xd5631d;
+
+        var scene = new THREE.Scene();
+
+        var geometry = new THREE.SphereGeometry( 1, 32, 32 );
+        var material = new THREE.MeshBasicMaterial( { color: darkOrange } );
+        var object = new THREE.Mesh( geometry, material );
+        scene.add( object );
+
+        var camera = new THREE.PerspectiveCamera( 55, width / height, 1, 1000 );
+        camera.position.z = 3;
+
+        var controls = new THREE.OrbitControls( camera );
+
+        renderer.setSize( width, height );
+
+        function draw () {
+          window.requestAnimationFrame( draw );
+          renderer.render( scene, camera );
+        }
+        draw();
+
+        container.appendChild( renderer.domElement );
+      }());
+    </script>
+
+    <!-- Basic lighting example -->
+    <script>
+      (function () {
+        var container = document.getElementById( 'basic_lighting_example' );
+        var renderer = new THREE.WebGLRenderer();
+        var width = container.offsetWidth;
+        var height = container.offsetHeight;
+        var darkOrange = 0xd5631d;
+
+        var scene = new THREE.Scene();
+
+        var geometry = new THREE.SphereGeometry( 1, 32, 32 );
+        var material = new THREE.MeshPhongMaterial( { color: darkOrange } );
+        var object = new THREE.Mesh( geometry, material );
+        scene.add( object );
+
+        var light = new THREE.DirectionalLight( 0xffffff, 1 );
+        light.position.set( 10, 10, 10 );
+        scene.add( light );
+
+        var camera = new THREE.PerspectiveCamera( 55, width / height, 1, 1000 );
+        camera.position.z = 3;
+
+        var controls = new THREE.OrbitControls( camera );
+
+        renderer.setSize( width, height );
+
+        function draw () {
+          window.requestAnimationFrame( draw );
+          renderer.render( scene, camera );
+        }
+        draw();
+
+        container.appendChild( renderer.domElement );
+      }());
+    </script>
+
+    <!-- Basic texturing example -->
+    <script>
+      (function () {
+        var container = document.getElementById( 'basic_texturing_example' );
+        var renderer = new THREE.WebGLRenderer();
+        var width = container.offsetWidth;
+        var height = container.offsetHeight;
+        var darkOrange = 0xd5631d;
+
+        var scene = new THREE.Scene();
+
+        THREE.ImageUtils.loadTexture('img/mars_1k_color.jpg', THREE.UVMapping,
+          function ( texture ) {
+            var geometry = new THREE.SphereGeometry( 1, 32, 32 );
+            var material = new THREE.MeshLambertMaterial( { map: texture } );
+            var object = new THREE.Mesh( geometry, material );
+            scene.add( object );
+          });
+
+        var light = new THREE.DirectionalLight( 0xffffff, 1 );
+        light.position.set( 10, 10, 10 );
+        scene.add( light );
+
+        var camera = new THREE.PerspectiveCamera( 55, width / height, 1, 1000 );
+        camera.position.z = 3;
+
+        var controls = new THREE.OrbitControls( camera );
+
+        renderer.setSize( width, height );
+
+        function draw () {
+          window.requestAnimationFrame( draw );
+          renderer.render( scene, camera );
+        }
+        draw();
+
+        container.appendChild( renderer.domElement );
+      }());
+    </script>
   </body>
 </html>
