@@ -13,6 +13,7 @@
     <section id="slides">
 
       <article>
+        <p class="row2 fine white">(Use Up/Down arrow keys to navigate.)</p>
         <p class="row5 bold white">WebGL</p>
         <p class="row7 small">Graphics programming for the web</p>
         <p class="row9 small bold"><a href="https://twitter.com/Xavier_Ho">@Xavier_Ho</a></p>
@@ -293,6 +294,11 @@ void main() {
         <p class="row7 fine">Use 'em. Love 'em. Embrace 'em.</p>
       </article>
 
+      <article data-background="white">
+        <img class="row2" src="img/webgl_skeleton.png">
+        <p class="row1 bold small">Battery-included starting point: <a href="https://github.com/filonik/bdva2015/blob/master/examples/part3/webgl_shader.html">[link]</a></p>
+      </article>
+
       <article>
         <img class="row2" src="img/shadertoy.png">
         <p class="row1 bold white">Shadertoy</p>
@@ -304,15 +310,15 @@ void main() {
       </article>
 
       <article data-background="#e89423">
-        <img class="row2" src="img/polarsea-1.jpg">
+        <img class="row2" src="img/mozvr.png">
         <p class="row1 bold black">Web + VR = WebVR</p>
-        <p class="rowB textright black fine">mozvr.com/projects/polarsea</p>
+        <p class="rowB textright black fine">mozvr.com/projects/sechelt</p>
       </article>
 
-      <article data-background="#e62043">
-        <img class="row2" src="img/timeshift.jpg">
-        <p class="row1 bold black">Games</p>
-        <p class="rowB textright black fine">timeshift165.com</p>
+      <article data-background="white">
+        <img class="row2" src="img/rome.png">
+        <p class="row1 bold black">Interactive Film</p>
+        <p class="rowB textright black fine">ro.me</p>
       </article>
 
       <article>
@@ -348,7 +354,9 @@ void main() {
       </article>
 
       <article data-background="#ffffff">
-        <p class="row5 bold black">Questions, comments? <a href="https://twitter.com/Xavier_Ho">@Xavier_Ho</a></p>
+        <p class="row3 black fine">Slides: <a href="https://filonik.github.io/bdva2015/slides/webgl/">filonik.github.io/bdva2015/slides/webgl/</a></p>
+        <p class="row2 textright"><img src="img/qrcode.png" style="width: 50%"></p>
+        <p class="row7 bold black">For more:<br> <a href="https://twitter.com/Xavier_Ho">@Xavier_Ho</a></p>
       </article>
 
     </section>
@@ -383,7 +391,7 @@ void main() {
         var camera = new THREE.PerspectiveCamera( 55, width / height, 1, 1000 );
         camera.position.z = 3;
 
-        var controls = new THREE.OrbitControls( camera );
+        var controls = new THREE.OrbitControls( camera, container );
 
         renderer.setSize( width, height );
 
@@ -420,7 +428,7 @@ void main() {
         var camera = new THREE.PerspectiveCamera( 55, width / height, 1, 1000 );
         camera.position.z = 3;
 
-        var controls = new THREE.OrbitControls( camera );
+        var controls = new THREE.OrbitControls( camera, container );
 
         renderer.setSize( width, height );
 
@@ -459,7 +467,7 @@ void main() {
         var camera = new THREE.PerspectiveCamera( 55, width / height, 1, 1000 );
         camera.position.z = 3;
 
-        var controls = new THREE.OrbitControls( camera );
+        var controls = new THREE.OrbitControls( camera, container );
 
         renderer.setSize( width, height );
 
@@ -483,7 +491,7 @@ void main() {
       }
     </script>
 
-    <script id="basic_shader_fragment" type="x-shader/x-vertex">
+    <script id="basic_shader_fragment" type="x-shader/x-fragment">
       uniform sampler2D map;
 
       varying vec2 vUv;
@@ -518,7 +526,7 @@ void main() {
         var camera = new THREE.PerspectiveCamera( 55, width / height, 1, 1000 );
         camera.position.z = 3;
 
-        var controls = new THREE.OrbitControls( camera );
+        var controls = new THREE.OrbitControls( camera, container );
 
         renderer.setSize( width, height );
 
@@ -544,7 +552,7 @@ void main() {
       }
     </script>
 
-    <script id="shader_lighting_fragment" type="x-shader/x-vertex">
+    <script id="shader_lighting_fragment" type="x-shader/x-fragment">
       uniform sampler2D map;
       uniform vec3 light;
 
@@ -589,7 +597,7 @@ void main() {
         var camera = new THREE.PerspectiveCamera( 55, width / height, 1, 1000 );
         camera.position.z = 3;
 
-        var controls = new THREE.OrbitControls( camera );
+        var controls = new THREE.OrbitControls( camera, container );
 
         renderer.setSize( width, height );
 
