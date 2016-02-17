@@ -1,0 +1,109 @@
+/**
+ * Oceanic Next Theme for RainbowJS (https://github.com/ccampbell/rainbow)
+ *
+ * Adaptation of Oceanic Next from
+ * https://github.com/voronianski/oceanic-next-color-scheme
+ *
+ * Usage: include this file in your HTML like this:
+ *  <link rel="stylesheet" type="text/css" href="css/oceanic-next.css">
+ *
+ * Anything transformed by RainbowJS will be automatically applied.
+ * Contributions welcome.
+ *
+ * Xavier Ho <contact@xavierho.com>
+ *
+ * base 00: #1B2B34 Darkest grey
+ * base 01: #343D46 .
+ * base 02: #4F5B66 .
+ * base 03: #65737E .
+ * base 04: #A7ADBA .
+ * base 05: #C0C5CE .
+ * base 06: #CDD3DE .
+ * base 07: #D8DEE9 Lighest grey
+ * base 08: #EC5f67 Red
+ * base 09: #F99157 Orange
+ * base 0A: #FAC863 Yellow
+ * base 0B: #99C794 Green
+ * base 0C: #5FB3B3 Turquoise
+ * base 0D: #6699CC Blue
+ * base 0E: #C594C5 Purple
+ * base 0F: #AB7967 Brown
+ *
+ */
+pre, code {
+    background: #1B2B34;
+    word-wrap: break-word;
+    margin: 0px;
+    padding: 10px;
+    color: #A7ADBA;
+    margin-bottom: 20px;
+}
+code { background: #343D46; }
+
+pre, code {
+    font-family: 'Inconsolata', "Consolas", "Courier New", monospace;
+}
+
+pre .comment {
+    color: #65737E; /* base01 */
+}
+
+pre .constant {
+    color: #A7ADBA;
+}
+
+pre .constant.language {
+    color: #6699CC; /* blue */
+}
+
+pre .constant.regexp {
+    color: #EC5f67; /* red */
+}
+
+pre .storage {
+    color: #268bd2; /* blue */
+}
+
+pre .string, pre .comment.docstring {
+    color: #5FB3B3; /* turquoise */
+}
+
+pre .support.tag.script, pre .support.tag.style {
+    color: #5FB3B3; /* turquoise */
+}
+
+pre .string.regexp {
+    color: #5FB3B3; /* turquoise */
+}
+
+pre .string.regexp.open, pre .string.regexp.close {
+    color: #5FB3B3; /* turquoise */
+}
+
+pre .keyword, pre .selector {
+    color: #99C794; /* green */
+}
+
+pre .inherited-class {
+    font-style: italic;
+}
+
+pre .entity {
+    color: #FAC863; /* yellow */
+}
+
+pre .support, *[data-language="c"] .function.call {
+    color: #99C794; /* green */
+}
+
+pre .support.method {
+    color: #A7ADBA;
+}
+
+pre .support.property {
+    color: #A7ADBA;
+}
+
+pre .variable.global, pre .variable.class, pre .variable.instance {
+    color: #A7ADBA;
+}

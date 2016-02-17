@@ -37,7 +37,7 @@
         if (background)
             $('body').animate({backgroundColor: background}, meta);
         else
-            $('body').animate({backgroundColor: 'black'}, meta);
+            $('body').animate({backgroundColor: '#343D46'}, meta);
     }
 
     // Scroll to slide

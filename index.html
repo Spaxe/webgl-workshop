@@ -2,59 +2,49 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>WebGL :: @Xavier_Ho</title>
+    <title>WebGL Workshop :: @Xavier_Ho</title>
     <link rel="stylesheet" type="text/css" href="css/reset.css">
-    <link rel="stylesheet" type="text/css" href="css/solarized-dark.css">
+    <link rel="stylesheet" type="text/css" href="css/oceanic-next.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link href='https://fonts.googleapis.com/css?family=Bitter:400,400italic,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
   </head>
 
   <body>
     <section id="slides">
 
       <article>
-        <p class="row2 fine white">(Use Up/Down arrow keys to navigate.)</p>
-        <p class="row5 bold white">WebGL</p>
-        <p class="row7 small">Graphics programming for the web</p>
-        <p class="row9 small bold"><a href="https://twitter.com/Xavier_Ho">@Xavier_Ho</a></p>
+        <p class="row3 bold yellow shadow">WebGL Workshop:</p>
+        <p class="row5 small bold yellow">Graphics programming for the web</p>
+        <p class="row7 small bold"><a href="https://twitter.com/Xavier_Ho">@Xavier_Ho</a></p>
+        <p class="row9 fine base03">(Use Up/Down arrow keys to navigate.)</p>
+      </article>
+
+      <article>
+        <iframe class="row3 whiteBG" src="https://www.google.com/logos/2014/rubiks/iframe/index.html" width="100%" height="75%"></iframe>
+        <p class="row1 bold yellow shadow">Google Doodle: Rubik's Cube</p>
       </article>
 
       <article>
         <p class="row2"><img src="img/webgl_logo.png"></p>
-        <p class="row6 small white"><em>WebGL is a Javascript API for rendering interactive 3D computer graphics and 2D graphics within any compatible web browser without the use of plug-ins. It is designed and maintained by Khronos Group.</em></p>
-      </article>
-
-      <article data-background="white">
-        <p class="row2 white"><img src="img/webgl_stats.png"></p>
-        <p class="row8 textright grey fine">webglstats.com</p>
-      </article>
-
-      <article data-background="white">
-        <p class="row2 white"><img src="img/caniuse_webgl.png"></p>
-        <p class="rowB textright grey fine">caniuse.com</p>
-      </article>
-
-      <article data-background="white">
-      <p class="row2 black">Try yours: <a href="https://get.webgl.org">get.webgl.org</a></p>
-
-        <table class="row5">
-          <tr class="black">
-            <td width="400">There are</td>
-          </tr>
-          <tr class="big bold">
-            <td width="400">&gt;1 billion</td>
-          </tr>
-          <tr class="black">
-            <td>devices that support WebGL.</td>
-          </tr>
-        </table>
-
+        <p class="row6 small base07"><em>WebGL is a Javascript API for rendering interactive 3D computer graphics and 2D graphics within any compatible web browser without the use of plug-ins. It is designed and maintained by Khronos Group.</em></p>
+        <p class="rowC fine base04 textright">Wikipedia</p>
       </article>
 
       <article>
-        <p class="row1 bold white">WebGL Javascript API ...</p>
+        <iframe class="row3 whiteBG" src="http://webglstats.com/" width="100%" height="75%"></iframe>
+        <p class="row1 bold yellow shadow">Available (almost) everywhere</p>
+      </article>
+
+      <article>
+        <iframe class="row3 whiteBG" src="https://get.webgl.org" width="100%" height="75%"></iframe>
+        <p class="row1 bold yellow shadow">get.webgl.org</p>
+      </article>
+
+      <article>
+        <p class="row1 bold yellow shadow">WebGL Javascript API ...</p>
         <ul class="row3 small">
-          <li>Implements closely to OpenGL ES 2</li>
+          <li>Implements closely to OpenGL ES 2 (and 3)</li>
           <li>Draws to HTML5 &lt;canvas&gt; element.</li>
           <li>Provides access to low-level graphics concepts: buffers, primitives, shaders and textures</li>
           <li>GPU Accelerated - WebGL is fast!</li>
@@ -64,12 +54,12 @@
       </article>
 
       <article>
-        <p class="row1 bold white">... is very verbose</p>
+        <p class="row1 bold yellow shadow">... is very verbose :(</p>
         <p class="row3"><img src="img/webgl_calls.png"></p>
       </article>
 
       <article>
-        <p class="row2 bold white">WebGL Libraries</p>
+        <p class="row2 bold yellow shadow">In practice: use a library</p>
         <p class="row4 small">three.js (<a href="http://threejs.org/">threejs.org</a>)</p>
         <p class="row5 small">sceneJS (<a href="http://scenejs.org/">scenejs.org</a>)</p>
         <p class="row6 small">Babylon.js (<a href="http://www.babylonjs.com/">babylonjs.com</a>)</p>
@@ -79,21 +69,43 @@
       </article>
 
       <article>
-        <pre class="row3 fine" data-language="javascript">
-&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r72/three.min.js"&gt;</script></pre>
-        <p class="row2 bold white">three.js</p>
+        <pre class="row4 fine" data-language="javascript">
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r74/three.min.js"&gt;</script></pre>
+        <p class="row2 bold yellow shadow">three.js</p>
 
-        <ul class="row5 small">
-          <li>High-level 3D library</li>
-          <li>Extremely popular (21k+ favs on Github)</li>
-          <li>Well documented and has good community support</li>
+        <ul class="row6 small">
+          <li>High-level 3D scene manager and renderer</li>
+          <li>Extremely popular (23k+ favs on Github)</li>
+          <li>API doc + many demos online with almost 8k Stackoverflow questions</li>
           <li>Cuts down boilerplates while maintaining flexibility</li>
         </ul>
       </article>
 
       <article>
-        <p class="row5 white bold">Let's dive in.</p>
-        <p class="row7 fine">Just a few steps to get started.</p>
+        <p class="row5 yellow bold shadow">Let's dive in.</p>
+        <p class="row7 small">Just a few steps to get started.</p>
+      </article>
+
+      <article>
+        <pre class="row3 fine" data-language="html">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot;&gt;
+  &lt;style&gt;
+    html, body { height: 100%; margin: 0; }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/three.js/r74/three.min.js&quot;&gt;&lt;/script&gt;
+
+  &lt;script&gt;
+    // Code goes here
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+        <p class="row1 bold yellow shadow">0. Web page skeleton</p>
+        <p class="rowB doubleline fine">This is the bare minimum we need to get a full-page WebGL app running. Let's code into the second <code data-language="javascript">&lt;script&gt;</code>tag.</p>
       </article>
 
       <article>
@@ -105,7 +117,10 @@ var height = window.innerHeight;
 renderer.setSize( width, height );
 
 document.body.appendChild( renderer.domElement );</pre>
-        <p class="row2 bold white">1. Setup render context</p>
+        <p class="row1 bold yellow shadow">1. Setup render context</p>
+        <p class="row7 doubleline fine">
+          <code data-language="javascript">THREE.WebGLRenderer</code> creates a <em>rendering context</em> for us to add geometry and lights to be drawn. We set the dimensions of our renderer, and append it to the webpage.
+        </p>
       </article>
 
       <article>
@@ -119,7 +134,14 @@ scene.add( object );
 
 var camera = new THREE.PerspectiveCamera( 55, width / height, 1, 1000 );
 camera.position.z = 3;</pre>
-        <p class="row2 bold white">2. Create geometry and camera</p>
+        <p class="row1 bold yellow shadow">2. Create geometry and camera</p>
+
+        <p class="row8 doubleline fine">
+          <code data-language="javascript">THREE.Scene</code> is our scene manager, smart enough to know what to do with different objects. We give it one geometry, a <code data-language="javascript">THREE.SphereGeometry</code>, and apply a 'flat' material for the look. They are linked by <code data-language="javascript">THREE.Mesh</code>, which is added to the scene manager.
+        </p>
+        <p class="rowB doubleline fine">
+          We create a <code data-language="javascript">THREE.PerspectiveCamera</code> so we have a point of reference.
+        </p>
       </article>
 
       <article>
@@ -129,7 +151,11 @@ function draw () {
   renderer.render( scene, camera );
 }
 draw();</pre>
-        <p class="row2 bold white">3. Start rendering</p>
+        <p class="row1 bold yellow shadow">3. Start rendering</p>
+
+        <p class="row6 doubleline fine">
+          Use <code data-language="javascript">window.requestAnimationFrame</code> as a handy callback function to be called the next time your browser updates. By calling itself in a nested function, we effectively have this function called every frame.
+        </p>
       </article>
 
       <article>
@@ -142,9 +168,13 @@ var light = new THREE.PointLight( 0xffffff, 1 );
 light.position.set( 10, 10, 10 );
 scene.add( light );</pre>
 
-        <pre class="row6 fine" data-language="javascript">
+        <p class="row6 doubleline fine">
+          For a more '3D' feel, we can add a <code data-language="javascript">THREE.PointLight</code> into the scene. We also have to update the material to a <code data-language="javascript">THREE.MeshPhongMaterial</code> to receive light. Phong is a classic shading model that combines basic shading and highlight.
+        </p>
+
+        <pre class="row9 fine" data-language="javascript">
 var material = new THREE.MeshPhongMaterial( { color: 0xd5631d } );</pre>
-        <p class="row2 bold white">4. Light up the world</p>
+        <p class="row1 bold yellow shadow">4. Light up the world</p>
       </article>
 
       <article>
@@ -153,22 +183,45 @@ var material = new THREE.MeshPhongMaterial( { color: 0xd5631d } );</pre>
 
       <article>
         <pre class="row3 fine" data-language="javascript">
-var geometry = new THREE.SphereGeometry( 1, 32, 32 );
 var material = new THREE.MeshLambertMaterial({
   map: THREE.ImageUtils.loadTexture('img/mars_1k_color.jpg')
-});
-var object = new THREE.Mesh( geometry, material );
-scene.add( object );</pre>
-        <p class="row2 bold white">5. Apply texture mapping</p>
+});</pre>
+        <p class="row1 bold yellow shadow">5. Apply texture mapping</p>
+
+        <p class="row5 doubleline fine">
+          ThreeJS supports a very simple way to apply textures. For example, we can use <code data-language="javascript">MeshLambertMaterial</code> to wrap an image around the sphere.
+        </p>
+
+        <p class="row7 doubleline fine">
+        <code data-language="javascript">THREE.ImageUtils.loadTexture</code> is a quick function to load images with minimal code.
+        </p>
       </article>
 
       <article>
         <p class="full" id="basic_texturing_example"></p>
       </article>
 
-      <article>
-        <p class="row5 bold white">But what about shaders?</p>
-        <p class="row7 fine">ThreeJS makes them easy to use!</p>
+      <article data-background="white">
+        <p class="row5 bold base00 shadow">Advanced Topic: Shaders</p>
+        <p class="row7 base01 small">ThreeJS makes them easy to use!</p>
+      </article>
+
+      <article data-background="white">
+        <p class="row2 bold base00 shadow">Shaders: what are they?</p>
+        <ul class="row4 small base01">
+          <li>Individual programs that run on GPU <em>per core</em></li>
+          <li>WebGL supports <em>vertex</em> and <em>fragment</em> shaders</li>
+          <li>C-like syntax</li>
+          <li>Can be compiled at runtime and hotloaded</li>
+        </ul>
+      </article>
+
+      <article data-background="white">
+        <p class="row2 bold base00 shadow">Graphics pipeline</p>
+        <p class="row4 base01 small">Rendering stages</p>
+        <p class="row4 base01 textright"><img src="img/fig1_3.jpg"></p>
+        <p class="row7 base01 small">Rasterisation</p>
+        <p class="row7 base01 textright"><img src="img/fig1_6.jpg"></p>
       </article>
 
       <article>
@@ -182,20 +235,20 @@ var material = new THREE.ShaderMaterial({
   vertexShader: vertexShader,
   fragmentShader: fragmentShader
 });</pre>
-        <p class="row2 bold white">1. THREE.ShaderMaterial</p>
+        <p class="row1 bold yellow shadow">1. THREE.ShaderMaterial</p>
       </article>
 
       <article>
-        <pre class="row2 fine" data-language="c">
+        <pre class="row3 fine" data-language="c">
 varying vec2 vUv;
 
 void main() {
   vUv = uv;
   gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
 }</pre>
-        <p class="row1 bold white">2. Texturing (vertex)</p>
+        <p class="row1 bold yellow shadow">2. Texturing (vertex)</p>
 
-        <pre class="row7 fine" data-language="c">
+        <pre class="row9 fine" data-language="c">
 uniform sampler2D map;
 
 varying vec2 vUv;
@@ -203,7 +256,7 @@ varying vec2 vUv;
 void main() {
   gl_FragColor = texture2D(map, vUv);
 }</pre>
-        <p class="row6 bold white">3. Texturing (fragment)</p>
+        <p class="row7 bold yellow shadow">3. Texturing (fragment)</p>
       </article>
 
       <article>
@@ -220,7 +273,7 @@ var material = new THREE.ShaderMaterial({
   vertexShader: vertexShader,
   fragmentShader: fragmentShader
 });</pre>
-        <p class="row2 bold white">4. Add a light source</p>
+        <p class="row1 bold yellow shadow">4. Add a light source</p>
       </article>
 
       <article>
@@ -233,7 +286,7 @@ void main() {
   vNormal = normalize(normalMatrix * normal);
   gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
 }</pre>
-        <p class="row2 bold white">5. Surface normals (vertex)</p>
+        <p class="row1 bold yellow shadow">5. Surface normals (vertex)</p>
       </article>
 
       <article>
@@ -256,7 +309,7 @@ void main() {
 
   gl_FragColor = 0.25 * vec4(glow, 1.0) + color;
 }</pre>
-        <p class="row2 bold white">6. Lighting (fragment)</p>
+        <p class="row1 bold yellow shadow">6. Lighting (fragment)</p>
       </article>
 
       <article>
@@ -264,8 +317,8 @@ void main() {
       </article>
 
       <article>
-        <p class="row1 bold white">WebGL GLSL (OpenGL ES 2.0) pre-defined variables</p>
-        <ul class="row4 small">
+        <p class="row1 bold yellow shadow">WebGL GLSL (OpenGL ES 2.0) pre-defined variables</p>
+        <ul class="row5 small">
           <li>(vertex out) vec4 gl_Position</li>
           <li>(vertex out) float gl_PointSize</li>
           <li>(fragment in) vec4 gl_FragCoord​</li>
@@ -275,7 +328,7 @@ void main() {
       </article>
 
       <article>
-        <p class="row1 bold white">ThreeJS pre-defined variables</p>
+        <p class="row1 bold yellow shadow">ThreeJS pre-defined variables</p>
         <ul class="row3 small">
           <li>uniform mat4 modelViewMatrix</li>
           <li>uniform mat4 projectionMatrix</li>
@@ -290,8 +343,8 @@ void main() {
       </article>
 
       <article>
-        <p class="row5 bold white">Shaders are powerful.</p>
-        <p class="row7 fine">Use 'em. Love 'em. Embrace 'em.</p>
+        <p class="row5 bold yellow shadow">Shaders are powerful.</p>
+        <p class="row7 small">Use 'em. Love 'em. Embrace 'em.</p>
       </article>
 
       <article data-background="white">
@@ -301,12 +354,12 @@ void main() {
 
       <article>
         <img class="row2" src="img/shadertoy.png">
-        <p class="row1 bold white">Shadertoy</p>
+        <p class="row1 bold base07">Shadertoy</p>
       </article>
 
       <article>
-        <p class="row5 bold white">What is WebGL being used for?</p>
-        <p class="row7 fine">Real-world applications today.</p>
+        <p class="row5 bold yellow shadow">What is WebGL being used for?</p>
+        <p class="row7 small">Real-world applications today.</p>
       </article>
 
       <article data-background="#e89423">
@@ -323,7 +376,7 @@ void main() {
 
       <article>
         <img class="row2" src="img/smoke-and-fire.png">
-        <p class="row1 bold small white">Scientific Visualisation</p>
+        <p class="row1 bold small base07">Scientific Visualisation</p>
       </article>
 
       <article data-background="#aaaaaa">
@@ -348,15 +401,14 @@ void main() {
         </ul>
       </article>
 
-      <article data-background="#e89423">
-        <img class="row2" src="img/webgl2.png">
-        <p class="row1 bold black">Upcoming: WebGL 2.0 Draft</p>
+      <article>
+        <iframe class="row3" src="https://www.khronos.org/registry/webgl/specs/latest/2.0/" width="100%" height="80%"></iframe>
+        <p class="row1 bold yellow shadow">Upcoming: WebGL 2.0 Draft</p>
       </article>
 
-      <article data-background="#ffffff">
-        <p class="row3 black fine">Slides: <a href="https://filonik.github.io/bdva2015/slides/webgl/">filonik.github.io/bdva2015/slides/webgl/</a></p>
-        <p class="row2 textright"><img src="img/qrcode.png" style="width: 50%"></p>
-        <p class="row7 bold black">For more:<br> <a href="https://twitter.com/Xavier_Ho">@Xavier_Ho</a></p>
+      <article>
+        <p class="row3 yellow bold shadow">fin</p>
+        <p class="row7 bold">Questions?</p>
       </article>
 
     </section>
