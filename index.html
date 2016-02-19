@@ -21,14 +21,14 @@
       </article>
 
       <article>
-        <iframe class="row3 whiteBG" src="https://www.google.com/logos/2014/rubiks/iframe/index.html" width="100%" height="75%"></iframe>
-        <p class="row1 bold yellow shadow">Google Doodle: Rubik's Cube</p>
-      </article>
-
-      <article>
         <p class="row2"><img src="img/webgl_logo.png"></p>
         <p class="row6 small base07"><em>WebGL is a Javascript API for rendering interactive 3D computer graphics and 2D graphics within any compatible web browser without the use of plug-ins. It is designed and maintained by Khronos Group.</em></p>
         <p class="rowC fine base04 textright">Wikipedia</p>
+      </article>
+
+      <article>
+        <iframe class="row3 whiteBG" src="https://www.google.com/logos/2014/rubiks/iframe/index.html" width="100%" height="75%"></iframe>
+        <p class="row1 bold yellow shadow">Google Doodle: Rubik's Cube</p>
       </article>
 
       <article>
@@ -44,7 +44,7 @@
       <article>
         <p class="row1 bold yellow shadow">WebGL Javascript API ...</p>
         <ul class="row3 small">
-          <li>Implements closely to OpenGL ES 2 (and 3)</li>
+          <li>Provides a powerful rendering tools</li>
           <li>Draws to HTML5 &lt;canvas&gt; element.</li>
           <li>Provides access to low-level graphics concepts: buffers, primitives, shaders and textures</li>
           <li>GPU Accelerated - WebGL is fast!</li>
@@ -53,9 +53,12 @@
         </ul>
       </article>
 
-      <article>
-        <p class="row1 bold yellow shadow">... is very verbose :(</p>
-        <p class="row3"><img src="img/webgl_calls.png"></p>
+      <article data-background="white">
+        <p class="row2 bold base00 shadow">Graphics pipeline</p>
+        <p class="row4 base01 small">Rendering stages</p>
+        <p class="row4 base01 textright"><img src="img/fig1_3.jpg"></p>
+        <p class="row7 base01 small">Rasterisation</p>
+        <p class="row7 base01 textright"><img src="img/fig1_6.jpg"></p>
       </article>
 
       <article>
@@ -154,7 +157,7 @@ draw();</pre>
         <p class="row1 bold yellow shadow">3. Start rendering</p>
 
         <p class="row6 doubleline fine">
-          Use <code data-language="javascript">window.requestAnimationFrame</code> as a handy callback function to be called the next time your browser updates. By calling itself in a nested function, we effectively have this function called every frame.
+          Use <code data-language="javascript">window.requestAnimationFrame</code> to hook a function call at the next time your browser updates. By calling itself in a nested function, we effectively have this function called every frame. <code data-language="javascript">renderer.render()</code> tells <code data-language="javascript">THREE.WebGLRenderer</code> to render the next frame.
         </p>
       </article>
 
@@ -188,11 +191,11 @@ var material = new THREE.MeshLambertMaterial({
 });</pre>
         <p class="row1 bold yellow shadow">5. Apply texture mapping</p>
 
-        <p class="row5 doubleline fine">
+        <p class="row6 doubleline fine">
           ThreeJS supports a very simple way to apply textures. For example, we can use <code data-language="javascript">MeshLambertMaterial</code> to wrap an image around the sphere.
         </p>
 
-        <p class="row7 doubleline fine">
+        <p class="row8 doubleline fine">
         <code data-language="javascript">THREE.ImageUtils.loadTexture</code> is a quick function to load images with minimal code.
         </p>
       </article>
@@ -201,27 +204,102 @@ var material = new THREE.MeshLambertMaterial({
         <p class="full" id="basic_texturing_example"></p>
       </article>
 
-      <article data-background="white">
-        <p class="row5 bold base00 shadow">Advanced Topic: Shaders</p>
-        <p class="row7 base01 small">ThreeJS makes them easy to use!</p>
+      <article>
+        <p class="row5 bold yellow shadow">Shaders: Graphics Programs</p>
+        <p class="row7 small">Programmable graphics pipelines</p>
       </article>
 
-      <article data-background="white">
-        <p class="row2 bold base00 shadow">Shaders: what are they?</p>
-        <ul class="row4 small base01">
+      <article>
+        <p class="row2 bold yellow shadow">Shaders</p>
+        <ul class="row4 small">
           <li>Individual programs that run on GPU <em>per core</em></li>
           <li>WebGL supports <em>vertex</em> and <em>fragment</em> shaders</li>
-          <li>C-like syntax</li>
+          <li>OpenGL Shading Language has C-like syntax</li>
           <li>Can be compiled at runtime and hotloaded</li>
         </ul>
       </article>
 
+      <article>
+        <p class="row2 bold yellow shadow">Why shaders?</p>
+        <ul class="row4 small">
+          <li>Passing custom information to render</li>
+          <li>Design your own transformations</li>
+          <li>Spice up your scene with special effects</li>
+          <li>Shaders are <em>fast</em>.</li>
+        </ul>
+      </article>
+
+      <article>
+        <p class="row2 bold yellow shadow">Vertex and Fragment Shaders</p>
+        <ul class="row4 small">
+          <li>Vertex shader projects 3D points into screen space.</li>
+          <li>WebGL driver interpolates values between vertex and fragment stages</li>
+          <li>Fragment shader colours individual pixels.</li>
+          <li>Vertex runs once per vertex; fragment runs once per pixel on each triangle.</li>
+        </ul>
+      </article>
+
       <article data-background="white">
-        <p class="row2 bold base00 shadow">Graphics pipeline</p>
-        <p class="row4 base01 small">Rendering stages</p>
-        <p class="row4 base01 textright"><img src="img/fig1_3.jpg"></p>
-        <p class="row7 base01 small">Rasterisation</p>
-        <p class="row7 base01 textright"><img src="img/fig1_6.jpg"></p>
+        <p class="row1 bold base00 shadow">WebGL GLSL (OpenGL ES 2.0) pre-defined variables</p>
+        <ul class="row4 small base01">
+          <li>(vertex out) vec4 gl_Position</li>
+          <li>(fragment out) vec4 gl_FragColor</li>
+        </ul>
+      </article>
+
+      <article data-background="white">
+        <p class="row1 bold base00 shadow">ThreeJS pre-defined variables</p>
+        <ul class="row3 small base01">
+          <li>uniform mat4 modelViewMatrix</li>
+          <li>uniform mat4 projectionMatrix</li>
+          <li>uniform mat4 viewMatrix</li>
+          <li>uniform mat3 normalMatrix</li>
+          <li>uniform vec3 cameraPosition</li>
+          <li>attribute vec3 position</li>
+          <li>attribute vec3 normal</li>
+          <li>attribute vec2 uv</li>
+          <li>attribute vec2 uv2</li>
+        </ul>
+      </article>
+
+      <article>
+        <pre class="row3 fine" data-language="c">
+varying vec2 vUv;
+
+void main() {
+  vUv = uv;
+  gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+}</pre>
+        <p class="row1 bold yellow shadow">Vertex shader example</p>
+
+        <p class="row7 doubleline fine">
+          To project 3D point into screen space, we can use three.js built-in <code data-language="javascript">position</code> attribute and transform it. This is done by making it a <em>homogeneous</em> vector and pre-multiplying it by <code data-language="javascript">projectionMatrix * modelViewMatrix</code>. Note that <code data-language="javascript">gl_Position</code> must be assigned to tell the driver where this point is.
+        </p>
+
+        <p class="rowA doubleline fine">
+          We pass three.js built-in <code data-language="javascript">uv</code> attribute to a <code data-language="javascript">varying</code> variable, so the values are interpolated when they get to the subsequent fragment shader.
+        </p>
+      </article>
+
+      <article>
+        <pre class="row3 fine" data-language="c">
+uniform sampler2D map;
+
+varying vec2 vUv;
+
+void main() {
+  gl_FragColor = texture2D(map, vUv);
+}</pre>
+        <p class="row1 bold yellow shadow">Fragment shader example</p>
+
+        <p class="row7 doubleline fine">
+          Here we take the uniform variable <code data-language="javascript">map</code> and pass it into a texture sampler, which effectively wraps an image around a geometry. Three.js primitives like the sphere we created has spherical <code data-language="javascript">uv</code> coordinates, which wraps top to bottom, and around the sphere. <code data-language="javascript">gl_FragColor</code> takes a 4-vector, which describes the colour <code data-language="javascript">RGB</code> and opacity <code data-language="javascript">A</code>.
+        </p>
+      </article>
+
+      <article>
+        <p class="row5 bold yellow shadow">Shader example</p>
+        <p class="row7 small">Let's use shaders to shine up our scene.</p>
       </article>
 
       <article>
@@ -236,27 +314,10 @@ var material = new THREE.ShaderMaterial({
   fragmentShader: fragmentShader
 });</pre>
         <p class="row1 bold yellow shadow">1. THREE.ShaderMaterial</p>
-      </article>
 
-      <article>
-        <pre class="row3 fine" data-language="c">
-varying vec2 vUv;
-
-void main() {
-  vUv = uv;
-  gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-}</pre>
-        <p class="row1 bold yellow shadow">2. Texturing (vertex)</p>
-
-        <pre class="row9 fine" data-language="c">
-uniform sampler2D map;
-
-varying vec2 vUv;
-
-void main() {
-  gl_FragColor = texture2D(map, vUv);
-}</pre>
-        <p class="row7 bold yellow shadow">3. Texturing (fragment)</p>
+        <p class="row8 doubleline fine">
+          <code data-language="javascript">THREE.ShaderMaterial</code> provides runtime shader loading functions. You can pass in custom variables via <code data-language="javascript">uniforms</code>, and your own shaders as shown. Here I've named a variable called <code data-language="javascript">map</code>.
+        </p>
       </article>
 
       <article>
@@ -273,7 +334,10 @@ var material = new THREE.ShaderMaterial({
   vertexShader: vertexShader,
   fragmentShader: fragmentShader
 });</pre>
-        <p class="row1 bold yellow shadow">4. Add a light source</p>
+        <p class="row1 bold yellow shadow">2. Add a light source</p>
+        <p class="row8 doubleline fine">
+          To add a light source in shaders we can pass in a custom variable called <code data-language="javascript">light</code>. We set its position as a 3-vector.
+        </p>
       </article>
 
       <article>
@@ -286,7 +350,15 @@ void main() {
   vNormal = normalize(normalMatrix * normal);
   gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
 }</pre>
-        <p class="row1 bold yellow shadow">5. Surface normals (vertex)</p>
+        <p class="row1 bold yellow shadow">3. Surface normals (vertex)</p>
+
+        <p class="row8 doubleline fine">
+          The mathematics of lighting can be boiled down to a simple formula: when light shines directly above, it's bright. When light shines from a glancing angle, it's not as bright. Think sunrise and sunset.
+        </p>
+
+        <p class="rowA doubleline fine">
+          Premultiplying <code data-language="javascript">normalMatrix</code> is needed to get our normals into screen space. <code data-language="javascript">normalize()</code> scales the result to a unit vector, which is important for lighting purposes.
+        </p>
       </article>
 
       <article>
@@ -309,52 +381,16 @@ void main() {
 
   gl_FragColor = 0.25 * vec4(glow, 1.0) + color;
 }</pre>
-        <p class="row1 bold yellow shadow">6. Lighting (fragment)</p>
+        <p class="row1 bold yellow shadow">4. Lighting (fragment)</p>
       </article>
 
       <article>
         <p class="full" id="shader_lighting_example"></p>
       </article>
 
-      <article>
-        <p class="row1 bold yellow shadow">WebGL GLSL (OpenGL ES 2.0) pre-defined variables</p>
-        <ul class="row5 small">
-          <li>(vertex out) vec4 gl_Position</li>
-          <li>(vertex out) float gl_PointSize</li>
-          <li>(fragment in) vec4 gl_FragCoord​</li>
-          <li>(fragment in) vec2 gl_PointCoord​</li>
-          <li>(fragment out) vec4 gl_FragColor</li>
-        </ul>
-      </article>
-
-      <article>
-        <p class="row1 bold yellow shadow">ThreeJS pre-defined variables</p>
-        <ul class="row3 small">
-          <li>uniform mat4 modelViewMatrix</li>
-          <li>uniform mat4 projectionMatrix</li>
-          <li>uniform mat4 viewMatrix</li>
-          <li>uniform mat3 normalMatrix</li>
-          <li>uniform vec3 cameraPosition</li>
-          <li>attribute vec3 position</li>
-          <li>attribute vec3 normal</li>
-          <li>attribute vec2 uv</li>
-          <li>attribute vec2 uv2</li>
-        </ul>
-      </article>
-
-      <article>
-        <p class="row5 bold yellow shadow">Shaders are powerful.</p>
-        <p class="row7 small">Use 'em. Love 'em. Embrace 'em.</p>
-      </article>
-
       <article data-background="white">
         <img class="row2" src="img/webgl_skeleton.png">
         <p class="row1 bold small">Battery-included starting point: <a href="https://github.com/filonik/bdva2015/blob/master/examples/part3/webgl_shader.html">[link]</a></p>
-      </article>
-
-      <article>
-        <img class="row2" src="img/shadertoy.png">
-        <p class="row1 bold base07">Shadertoy</p>
       </article>
 
       <article>
@@ -368,33 +404,34 @@ void main() {
         <p class="rowB textright black fine">mozvr.com/projects/sechelt</p>
       </article>
 
-      <article data-background="white">
-        <img class="row2" src="img/rome.png">
-        <p class="row1 bold black">Interactive Film</p>
-        <p class="rowB textright black fine">ro.me</p>
+      <article data-background="black">
+        <img class="row2" src="img/cryptaris.png">
+        <p class="row1 bold yellow">Video games</p>
+        <p class="rowB textright base00 fine">cryptarismission.com</p>
       </article>
 
       <article>
         <img class="row2" src="img/smoke-and-fire.png">
         <p class="row1 bold small base07">Scientific Visualisation</p>
+        <p class="rowB textright black fine">research.csiro.au/static/airquality/smoke-and-fire</p>
       </article>
 
       <article data-background="#aaaaaa">
         <img class="row2" style="height: 70%" src="img/charizard.png">
-        <p class="row1 bold black">3D printing</p>
+        <p class="row1 bold black">Preview 3D Printing</p>
         <p class="rowB textright black fine">thingiverse.com/thing:342381</p>
       </article>
 
       <article data-background="#ffffff">
-        <img class="row2" src="img/lego.png">
-        <p class="row1 bold black">Lego</p>
-        <p class="rowC textright black fine">buildwithchrome.com</p>
+        <img class="row2" src="img/bear71.png">
+        <p class="row1 bold black">Data Storytelling</p>
+        <p class="rowC textright black fine">bear71.nfb.ca/#/bear71</p>
       </article>
 
-      <article data-background="#e89423">
-        <p class="row2 bold black">Takeaways</p>
-        <ul class="row4 black small">
-          <li>WebGL supports over 1 billion devices today.</li>
+      <article>
+        <p class="row2 bold yellow shadow">Takeaways</p>
+        <ul class="row4 small">
+          <li>WebGL is available everywhere.</li>
           <li>ThreeJS takes less than 10 lines of Javascript to get started.</li>
           <li>Shaders are awesome.</li>
           <li>Infinite application opportunities.</li>
